@@ -1,23 +1,47 @@
 <button class="menuOpen" type="button">
-  <i class="ph ph-list"></i>
+  <div class="line line1"></div>
+  <div class="line line2"></div>
+  <div class="line line3"></div>
 </button>
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
 
-  i {
-    font-size: 3rem;
-    color: $tertiary;
-  }
-
   .menuOpen {
     position: fixed;
     top: 25px;
     right: 5%;
-    background-color: transparent;
-    cursor: pointer;
     z-index: 20;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 50px; 
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
   }
+
+  .line {
+    width: 100%; 
+    height: 6px;
+    border-radius: 8px;
+  }
+
+  .line1 {
+    background-color: $purple;
+  }
+
+  .line2 {
+    background-color: $green;
+  }
+
+  .line3 {
+    background-color: $red;
+  }
+
 
   @media (min-width: 1024px) {
     .menuOpen {

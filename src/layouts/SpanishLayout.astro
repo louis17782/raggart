@@ -1,7 +1,7 @@
 ---
 import Navigation from "../components/Navigation.astro";
 import Openbutton from "../components/Hamburguer.astro";
-import logo from "../assets/image/logo.png";
+import logo from "../assets/image/logoradio.png";
 const {title} = Astro.props;
 ---
 
@@ -11,9 +11,9 @@ const {title} = Astro.props;
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/png" href={logo.src} />
 		<meta name="viewport" content="width=device-width" />
-    <meta name="description" content="portafolio de luis santeliz desarrollador web">
+    <meta name="description" content="cambiar esto luego">
 		<meta name="generator" content={Astro.generator} /> 
-		<title>{title}</title>
+		<title>music regge by raggart</title>
 		<script src="https://unpkg.com/@phosphor-icons/web"></script>
 	</head>
   <body>
@@ -46,10 +46,10 @@ const {title} = Astro.props;
   }
   
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: $bold;
     font-family: $heading;
-    color: $secondary;
+    color: $white;
     margin: 0 5%;
   }
 
@@ -57,7 +57,7 @@ const {title} = Astro.props;
     font-size: 2.5rem;
     font-weight: $bold;
     font-family: $heading;
-    color: $secondary;
+    color: $white;
     margin: 0 5%;
   }
 
@@ -65,14 +65,14 @@ const {title} = Astro.props;
     font-size: 2rem;
     font-family: $heading;
     font-weight: $bold;
-    color: $secondary;
+    color: $white;
     margin: 0 15%; 
   }
   
   .underline {
     width: 130px;
     height: 2px;
-    background-color: $tertiary;
+    background-color: $red;
     justify-content: left;
     border-radius: 2px;
     margin: 0 5% 20px; 
@@ -82,7 +82,7 @@ const {title} = Astro.props;
     font-size: 1.25rem;
     font-family: $text;
     font-weight: $regular;
-    color: $secondary;
+    color: $white;
     margin: 0 5%; 
   }
 
@@ -90,7 +90,7 @@ const {title} = Astro.props;
     font-size: 1rem;
     font-weight: $regular;
     font-family: $text;
-    color: $tertiary;
+    color: $white;
   }
   
   // inicia boton rojo de accion
@@ -112,7 +112,7 @@ const {title} = Astro.props;
     font-family: $text;
     font-weight: $regular;
     font-size: 1.5rem;
-    color: $tertiary;
+    color: $green;
     
     a {
       font-family: $text;
@@ -122,12 +122,12 @@ const {title} = Astro.props;
   }
   
   .primarybutton {
-    background-color: $primary;
-    box-shadow: 0 0 10px 10px rgba($tertiary, 35%);
+    background-color: transparent;
+    box-shadow: 0 0 10px 10px rgba($green, 35%);
   }
   
   .primarybutton:hover {
-    background-color: $primary;
-    box-shadow: 0 0 25px 15px rgba($tertiary, 25%);
+    background-color: transparent;
+    box-shadow: 0 0 25px 15px rgba($green, 25%);
   }
 </style>

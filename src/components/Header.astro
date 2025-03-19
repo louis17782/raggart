@@ -1,28 +1,75 @@
 ---
-const {title, text, subtext, button} = Astro.props;
+import logo from "../assets/image/logoHeader.png";
+import album1 from "../assets/image/Album1.jpg";
+import album2 from "../assets/image/Album2.jpg";
+import album3 from "../assets/image/Album3.jpg";
+import album4 from "../assets/image/Album4.jpg";
+import album5 from "../assets/image/Album5.jpg";
+import album6 from "../assets/image/Album6.png";
+import album7 from "../assets/image/Album7.webp";
 ---
-
 <header id="hola">
+  <img src={logo.src} alt="">
   <div class="content-box"> 
-    <h1>{title} <span>Front End Developer</span></h1>
-    <p>{text}</p>
-    <br>
-    <p>{subtext}</p>
+    <h1>A musical escape to the dimension of Jamaican sounds</h1>
   </div>
-  <button class="primarybutton">
-  <a href="#contact">{button}</a>
-  </button>
 </header>
+<section>
+  <h2>ALBUMS</h2>
+  <div class="underline"></div>
+  <div class="albums">
+    <div class="album">
+      <img src={album1.src} alt="">
+      <p>RAGGART</p>
+      <p class="grey">Artist</p>
+    </div>
+    <div class="album">
+      <img src={album2.src} alt="">
+      <p>RAGGART</p>
+      <p class="grey">Artist</p>
+    </div>
+    <div class="album">
+      <img src={album3.src} alt="">
+      <p>RAGGART</p>
+      <p class="grey">Artist</p>
+    </div>
+    <div class="album">
+      <img src={album4.src} alt="">
+      <p>RAGGART</p>
+      <p class="grey">Artist</p>
+    </div>
+    <div class="album">
+      <img src={album5.src} alt="">
+      <p>RAGGART</p>
+      <p class="grey">Artist</p>
+    </div>
+    <div class="album">
+      <img src={album6.src} alt="">
+      <p>RAGGART</p>
+      <p class="grey">Artist</p>
+    </div>
+    <div class="album">
+      <img src={album7.src} alt="">
+      <p>RAGGART</p>
+      <p class="grey">Artist</p>
+    </div>
+</section>
 
 <style lang="scss">
   @use '../assets/sass/index' as *;
 
   header {
-    background-image: linear-gradient(to bottom, rgba(0, .6,.6, 0%), rgba(0,.5,.5, 100%)), url("../assets/image/headerMovil.webp");
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: linear-gradient(to bottom, rgba(0, .6,.6, 40%), rgba(0,.5,.5, 100%)), url("../assets/image/movilDesk.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     width: 100%;
+    height: 60vh;
   }
 
   .content-box {
@@ -35,15 +82,49 @@ const {title, text, subtext, button} = Astro.props;
     h1 {
       margin-top: 100px;
     }
-    
-    p {
-      margin-top: 10px;
-    }
+  }
+  
+  section {
+    background-color: $black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
   }
 
-  span { 
-    color: $tertiary;
-    font-family: monospace; 
+  .albums {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+  }
+
+  .album img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .album {
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba($grey, 50%);
+    padding: 40px 20px 50px 20px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    p{
+      margin: 20px 0 0 0;
+    } 
+
+    .grey {
+      color: $grey;
+    }
   }
 
   @media only screen and (min-width: 1024px) {
@@ -53,7 +134,7 @@ const {title, text, subtext, button} = Astro.props;
     }
 
     header {
-      background-image: linear-gradient(to bottom, rgba(0, .6,.6, 0%), rgba(0,.2,.2,60%)), url("../assets/image/header.webp");
+      background-image: linear-gradient(to bottom, rgba(0, .6,.6, 0%), rgba(0,.2,.2,60%)), url("../assets/image/desk.jpg");
       background-size: cover;
       background-position: center center;
       overflow: hidden;
@@ -61,12 +142,6 @@ const {title, text, subtext, button} = Astro.props;
 
     .content-box {
       max-width: 600px;
-      
-    }
-
-    .primarybutton {
-      width: 300px;
-      margin: 70px 3%;
     }
   }
 </style>
