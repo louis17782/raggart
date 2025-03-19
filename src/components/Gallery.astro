@@ -1,0 +1,270 @@
+---
+import Gallery1 from "../assets/image/Gallery1.jpg";
+import Gallery2 from "../assets/image/Gallery2.jpg";
+import Gallery3 from "../assets/image/Gallery3.jpg";
+import Gallery4 from "../assets/image/Gallery4.jpg";
+import Gallery5 from "../assets/image/Gallery5.jpg";
+import Gallery6 from "../assets/image/Gallery6.jpg";
+import Gallery7 from "../assets/image/Gallery7.jpg";
+import Gallery8 from "../assets/image/Gallery8.jpg";
+import Left from "../assets/image/left.png";
+import Right from "../assets/image/right.png";
+const images = [
+  Gallery1, Gallery2, Gallery3, Gallery4, Gallery5, Gallery6, Gallery7, Gallery8
+];
+---
+
+<section id="gallery"> 
+  <div class="arrow left-arrow" id="leftArrow"><img src={Right.src} alt="Left"></div>
+  <div class="arrow right-arrow" id="rightArrow"><img src={Left.src} alt="right"></div>
+  <div class="gallery-container">
+    <h2>GALLERY</h2>
+    <div class="underline"></div>
+    <div class="gallery-slider" id="gallerySlider">
+      {images.map((image, index) => (
+        <img src={image.src} alt={`Imagen ${index + 1}`} />
+      ))}
+    </div>
+    <div class="gallery-dots" id="galleryDots">
+      {images.map((_, index) => (
+        <span class="dot" data-index={index}></span>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const slider = document.getElementById('gallerySlider');
+  const dotsContainer = document.getElementById('galleryDots');
+  const leftArrow = document.getElementById('leftArrow');
+  const rightArrow = document.getElementById('rightArrow');
+
+  const totalImages = slider.querySelectorAll('img').length;
+  const MAX_DOTS = 7; 
+
+  let currentIndex = 0;
+
+  for (let i = 0; i < MAX_DOTS; i++) {
+    const dot = document.createElement('span');
+    dot.className = 'dot';
+    dot.setAttribute('data-index', i);
+    dotsContainer.appendChild(dot);
+  }
+
+  const dots = dotsContainer.querySelectorAll('.dot');
+
+  function updateGallery() {
+    const width = slider.clientWidth;
+    slider.style.transform = `translateX(-${currentIndex * width}px)`;
+
+    dots.forEach((dot, index) => {
+      const dotIndex = (currentIndex + index) % totalImages;
+      dot.setAttribute('data-index', dotIndex);
+      dot.classList.remove('active');
+      if (index === (currentIndex % MAX_DOTS)) dot.classList.add('active');
+    });
+
+    if (window.innerWidth > 1024) {
+      leftArrow.style.display = currentIndex === 0 ? 'none' : 'block';
+      rightArrow.style.display = currentIndex === totalImages - 1 ? 'none' : 'block';
+    } else {
+      leftArrow.style.display = 'none';
+      rightArrow.style.display = 'none';
+    }
+  }
+
+  function setIndex(index) {
+    currentIndex = index;
+    updateDots();
+    updateGallery();
+  }
+
+  function updateDots() {
+    const startIndex = Math.max(currentIndex - Math.floor(MAX_DOTS / 2), 0);
+    const endIndex = Math.min(startIndex + MAX_DOTS, totalImages);
+
+    dots.forEach((dot, index) => {
+      if (index < endIndex - startIndex) {
+        dot.style.display = 'inline-block';
+        dot.setAttribute('data-index', startIndex + index);
+      } else {
+        dot.style.display = 'none';
+      }
+    });
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      setIndex(parseInt(dot.getAttribute('data-index')));
+    });
+  });
+
+  leftArrow.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      setIndex(currentIndex - 1);
+    }
+  });
+
+  rightArrow.addEventListener('click', () => {
+    if (currentIndex < totalImages - 1) {
+      setIndex(currentIndex + 1);
+    }
+  });
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  slider.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
+
+  slider.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].clientX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    if (touchEndX < touchStartX) {
+      if (currentIndex < totalImages - 1) {
+        setIndex(currentIndex + 1);
+      }
+    }
+    if (touchEndX > touchStartX) {
+      if (currentIndex > 0) {
+        setIndex(currentIndex - 1);
+      }
+    }
+  }
+
+  updateGallery(); 
+  updateDots(); 
+});
+</script>
+
+<style lang="scss">
+  @use "../assets//sass/index" as*;
+
+  .gallery-container {
+    position: relative;
+    width: auto;
+    max-width: 600px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section {
+    background-image: linear-gradient(to bottom, rgba(0, .6,.6, 70%), rgba(0,.5,.5, 100%)), url("../assets/image/backgroundgallery.jpg");
+    background-repeat:no-repeat;
+    background-position: cover;
+    padding: 50px 0 50px 0;
+  }
+
+  .gallery-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .gallery-slider img {
+    padding-top: 20px;
+    width: 100%;
+    height: 550px;
+    object-fit: contain;
+    aspect-ratio: 3 / 2;
+    flex-shrink: 0;
+  }
+
+  .gallery-dots {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .gallery-dots .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .gallery-dots .dot.active {
+    background-color: $green;
+    box-shadow: 0 0 25px 15px rgba($green, 45%);
+  }
+
+  .left-arrow, .right-arrow {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    font-size: 50px;
+    z-index: 10;
+    display: none;
+  }
+
+  .left-arrow {
+    left: 10%;
+  }
+
+  .right-arrow {
+    right: 10%;
+  }
+
+  .underline {
+    width: 10%;
+    height: 2px;
+    background-color: $green;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    border-radius: 2px;
+    margin: auto; 
+  }
+
+@media (min-width: 600px) { 
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+ }
+
+@media (min-width: 1024px) {
+  .arrow {
+    display: block;
+    cursor: pointer;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gallery-container {
+    max-width: 400px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .underline {
+    width: 10%;
+    height: 2px;
+    background-color: $green;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    border-radius: 2px;
+    margin: auto; 
+  }
+}
+</style>
