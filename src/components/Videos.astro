@@ -1,0 +1,36 @@
+<article>
+  <h2>VIDEOS</h2>
+  <div class="underline"></div>
+  <div class="videos">
+    
+  </div>
+<article/>
+
+<style lang="scss">
+  @use '../assets/sass/index' as *;
+
+  article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $red;
+    padding: 50px;
+  }
+
+  .videos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 70px;
+    justify-content: left;
+    p{
+      
+    }
+  }
+
+  iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
+</style>
