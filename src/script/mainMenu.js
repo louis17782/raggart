@@ -25,7 +25,7 @@ projects.forEach(project => {
 });
 
 // Close menu after navigation
-const navLinks = document.querySelectorAll('.navlinks a[href="#projects"], .navlinks a[href="#about"], .navlinks a[href="#contact"], .navlinks a[href="#hola"]');
+const navLinks = document.querySelectorAll('.navlinks a[href="#albums"], .navlinks a[href="#videos"], .navlinks a[href="#media"], .navlinks a[href="#home"], .navlinks a[href="#gallery"]');
 
 function closeMenuAfterNavigation() {
   document.querySelector('.blur-background').classList.remove('active');
