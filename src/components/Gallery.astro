@@ -226,28 +226,24 @@ const images = [
     margin: auto; 
   }
 
-@media (min-width: 600px) { 
-
-  section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
- }
-
 @media (min-width: 1024px) {
+
   .arrow {
     display: block;
     cursor: pointer;
   }
 
   section {
+    background-image: linear-gradient(to bottom, rgba(0, .6,.6, 70%), rgba(0,.5,.5, 100%)), url("../assets/image/Gallery12.jpg");
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+}
 
   .gallery-container {
     max-width: 400px;

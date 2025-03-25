@@ -1,10 +1,27 @@
+---
+import logo from "../assets/image/logoradio.png";
+const radioUrl = "https://play.radioking.io/alternative-country-radio43";
+---
 <section id="contact">
+  <h2>SOCIAL MEDIA</h2>
+  <div class="underline"></div>
   <figure>
-    <a href="https://www.linkedin.com/in/luis-santeliz-678935193/" target="_blank"><i class="ph ph-linkedin-logo"></i></a>
-    <a href="https://www.instagram.com/louissanteliz/" target="_blank"><i class="ph ph-instagram-logo"></i></a>
-    <a href="https://github.com/louis17782" target="_blank"><i class="ph ph-github-logo"></i></a>
+    <a href="#" target="_blank"><i class="ph-fill ph-spotify-logo"></i></a>
+    <a href="#" target="_blank"><i class="ph-fill ph-youtube-logo"></i></a>
+    <a href="#" target="_blank"><i class="ph-fill ph-tidal-logo"></i></a>
+    <a href="#" target="_blank"><i class="ph-fill ph-equalizer"></i></a>
   </figure>
+  <p class="name">RAGGART</p>
 </section>
+<div class="radio-container">
+  <img src={logo.src} alt="">
+  <p id="song-title">RADIO - PLAY NOW</p> 
+  <div> 
+    <button id="play-button"></button>
+    <button id="pause-button"></button>
+    <audio id="radio-player" src={radioUrl}></audio>
+  </div> 
+</div>
 
 <style lang="scss">
   @use "../assets/sass/index" as *;
@@ -14,7 +31,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 20px;
+    background-color: black;
+    padding: 120px 0;
   }
 
   section a  {
@@ -24,51 +42,144 @@
     font-size: 1.5rem;
 
     i {
-      font-size: 3rem;
+      font-size: 5rem;
       cursor: pointer;
       margin-left: 20px;
+      color: $purple;
     }
-  }
-
-  a:hover {
-    color: $red;
   }
 
   figure {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0;
 
     i {
-      font-size: 50px; 
-      transition: color 0.3s;
       margin: 0 20px;
       cursor: pointer;
       color: white;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    a:hover i {
+      color: #8e27ff;
+      transform: scale(1.2);
     }
   }
 
-  a:hover i {
-    color: $red;
+  .underline {
+    background-color: $purple;
+  }
+
+  .name {
+    width: 80%;
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 5px; 
+    box-shadow: 0 0 10px 10px rgba($purple, 35%);
+    text-align: center;
+    margin-top: 40px;
+  }
+  //RADIO
+  .radio-container {
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000; 
+    color: white; 
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    padding: 10px; 
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5); 
+    z-index: 1000;
+  }
+
+  .radio-container > div {
+    display: flex; 
+    justify-content: center;
+    gap: 20px;
+  }
+
+  #play-button {
+    width: 50px;
+    height: 50px;
+    background-image: url('../assets//image/play.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    cursor: pointer; 
+    transition: transform 0.2s, background-color 0.3s; 
+  }
+
+  #play-button:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.1); 
+  }
+
+  #pause-button {
+    width: 50px;
+    height: 50px;
+    background-image: url('../assets//image/pause.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+  }
+
+  #pause-button:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  #song-title {
+    margin-top: 10px; 
+    font-size: 1.2rem; 
+    font-weight: bold;
+    text-align: center;
   }
 
   @media only screen and (min-width: 1024px) {
 
     section {
-      flex-direction: row;
-      background-color: $black;
-      justify-content: space-between;
-      margin: 100px 0 0 0;
-      width: 100%;
-      height: 100px;
-    }
-    section figure {
-      margin: 0 5%;
+      padding: 150px 0;
     }
 
-    section a {
-      margin: 0 5%;
+    .name {
+      width: 40%;
+      margin-top: 60px;
+    }
+
+    figure {
+      flex-direction: row;
+    }
+
+    .radio-container {
+      padding: 0; 
+    }
+
+    .radio-container img {
+      width: 60px;
+      height: 60px;
+    }
+
+    #pause-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    #play-button {
+      width: 40px;
+      height: 40px;
     }
   }
 </style>

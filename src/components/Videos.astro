@@ -1,36 +1,70 @@
+---
+import video1 from "/video1.mp4";
+import video2 from "/video2.mp4";
+import video3 from "/video3.mp4";
+---
 <article>
   <h2>VIDEOS</h2>
   <div class="underline"></div>
   <div class="videos">
-    
+    <figure>
+      <video controls width="300" preload="none" poster="/poster1.jpg">
+        <source src={video1} type="video/mp4" />
+      </video>
+      <figcaption>Raggart - Reggae With You</figcaption>
+    </figure>
+
+    <figure>
+      <video controls width="300" preload="none" poster="/poster2.jpg">
+        <source src={video2} type="video/mp4" />
+      </video>
+      <figcaption>The Dance of Shiva</figcaption>
+    </figure>
+
+    <figure>
+      <video controls width="300" preload="none" poster="/poster3.JPG">
+        <source src={video3} type="video/mp4" />
+      </video>
+      <figcaption>Raggart - Margarita</figcaption>
+    </figure>
   </div>
-<article/>
+</article>
+
+
 
 <style lang="scss">
   @use '../assets/sass/index' as *;
 
+  
   article {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: $red;
-    padding: 50px;
+    background-image: linear-gradient(to top, rgba(0, .6,.6, 40%), rgba(0,.5,.5, 100%)), url("../assets/image/backgroundvideo.webp");
+    padding: 50px 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
   }
 
   .videos {
     display: flex;
     flex-wrap: wrap;
     gap: 70px;
-    justify-content: left;
-    p{
-      
-    }
+    justify-content: center;
   }
 
-  iframe {
+  video {
     max-width: 100%;
     height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(103, 101, 101, 0.9);
   }
-
+  
+  figcaption {
+    color: white;
+    font-size: 1.5rem;
+    text-align: left;
+  }
 </style>

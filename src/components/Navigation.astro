@@ -9,8 +9,8 @@ import logo from "../assets/image/logoHeader.png";
       <i class="ph ph-x"></i>
     </div> 
     <div class="nav-container">
-      <img class="logo" src={logo.src} alt="logo">
       <ul class="navlinks"> 
+        <img class="logo" src={logo.src} alt="logo">
         <li><a href="#hola" data-astro-prefetch>HOME</a></li>
         <li><a href="#projects" data-astro-prefetch>ALBUMS</a></li>
         <li><a href="#about" data-astro-prefetch>VIDEOS</a></li>
@@ -66,7 +66,7 @@ import logo from "../assets/image/logoHeader.png";
     margin: 0;
   }
 
-  i {
+  .content, .i {
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -81,8 +81,8 @@ import logo from "../assets/image/logoHeader.png";
     text-decoration-thickness: 3px;
   }
 
-  li {
-    display: inline-block;
+  .content li {
+    display: inline-block;  // eliminar content
   }
 
   .navlinks a {
@@ -126,10 +126,8 @@ import logo from "../assets/image/logoHeader.png";
   }
 
   .nav-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
+    position: relative;
+    top: 0;
   }
 
   .logo {
@@ -138,65 +136,65 @@ import logo from "../assets/image/logoHeader.png";
 
   @media only screen and (min-width: 1024px) {
 
-    .nav-container {
-      position: fixed;
-      z-index: 99;
-      width: 100%;
-    }
+  .nav-container {
+    position: relative;
+    height: 100%;
+    z-index: 99;
+    width: 100%;
+    top: 0;
+  }
 
-    nav {
-      right: 0;
-      top: 0;
-      height: auto;
-      background-color: rgba($black, 90%);
-      max-width: 100%;
-      margin: 0 auto;
-      z-index: 99;
-    }
+  nav {
+    position: static;
+    right: 0;
+    top: 0;
+    height: auto;
+    background-color: $black;
+    max-width: 100%;
+    margin: 0 auto;
+    z-index: 99;
+  }
 
-    .navlinks {
-      display: flex;
-      flex-direction: row;
-      height: 60px;
-      margin: 0 10%;
-      justify-content: space-around;
-      align-items: center;
-      text-decoration: none;
-      list-style: none;
-    }
+  .navlinks {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    list-style: none;
+  }
 
-    .close-menu-container {
-      display: none;
-    }
+  .close-menu-container {
+    display: none;
+  }
 
-    .blur-background {
-      position: static; 
-      top: auto; 
-      left: auto; 
-      width: auto; 
-      height: auto; 
-      backdrop-filter: none;
-      background-color: transparent; 
-      opacity: 1; 
-      transition: none; 
-      z-index: auto; 
-      pointer-events: all; 
-    }
+  .blur-background {
+    position: static; 
+    top: auto; 
+    left: auto; 
+    width: auto; 
+    height: auto; 
+    backdrop-filter: none;
+    background-color: transparent; 
+    opacity: 1; 
+    transition: none; 
+    z-index: auto; 
+    pointer-events: all; 
+  }
 
-    .nav-container {
-      position: relative;
-      top: 0;
-    }
+  .nav-container {
+    position: relative;
+    top: 0;
+  }
 
-    .logo {
-      position: absolute;
-      top: 0;
-      width: 100px;
-    }
+  .logo {
+    width: 100px;
+  }
 
-    .navlinks a {
-      font-size: 1rem;
-      margin-top: 0;
-    }
+  .navlinks a {
+    font-size: 1rem;
+    margin-top: 0;
+  }
   }
 </style>

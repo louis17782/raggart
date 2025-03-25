@@ -18,45 +18,131 @@ import album7 from "../assets/image/Album7.webp";
   <h2>ALBUMS</h2>
   <div class="underline"></div>
   <div class="albums">
-    <div class="album">
-      <img src={album1.src} alt="">
-      <p>RAGGART</p>
-      <p class="grey">Artist</p>
+    <div class="album project">
+      <div class="content-hover"> 
+        <img src={album1.src} alt="">
+        <p>RAGGART</p>
+        <p class="grey">Artist</p>
+        <div class="content">
+          <button class="primarybutton">
+            <a href="#" target="_blank">Go to the album</a>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="album">
-      <img src={album2.src} alt="">
-      <p>RAGGART</p>
-      <p class="grey">Artist</p>
+
+    <div class="album project">
+      <div class="content-hover"> 
+        <img src={album2.src} alt="">
+        <p>RAGGART</p>
+        <p class="grey">Artist</p>
+        <div class="content">
+          <button class="primarybutton">
+            <a href="#" target="_blank">Go to the album</a>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="album">
-      <img src={album3.src} alt="">
-      <p>RAGGART</p>
-      <p class="grey">Artist</p>
+
+    <div class="album project">
+      <div class="content-hover"> 
+        <img src={album3.src} alt="">
+        <p>RAGGART</p>
+        <p class="grey">Artist</p>
+        <div class="content">
+          <button class="primarybutton">
+            <a href="#" target="_blank">Go to the album</a>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="album">
-      <img src={album4.src} alt="">
-      <p>RAGGART</p>
-      <p class="grey">Artist</p>
+
+ <div class="album project">
+      <div class="content-hover"> 
+        <img src={album4.src} alt="">
+        <p>RAGGART</p>
+        <p class="grey">Artist</p>
+        <div class="content">
+          <button class="primarybutton">
+            <a href="#" target="_blank">Go to the album</a>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="album">
-      <img src={album5.src} alt="">
-      <p>RAGGART</p>
-      <p class="grey">Artist</p>
+
+   <div class="album project">
+      <div class="content-hover"> 
+        <img src={album5.src} alt="">
+        <p>RAGGART</p>
+        <p class="grey">Artist</p>
+        <div class="content">
+          <button class="primarybutton">
+            <a href="#" target="_blank">Go to the album</a>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="album">
-      <img src={album6.src} alt="">
-      <p>RAGGART</p>
-      <p class="grey">Artist</p>
+
+   <div class="album project">
+      <div class="content-hover"> 
+        <img src={album6.src} alt="">
+        <p>RAGGART</p>
+        <p class="grey">Artist</p>
+        <div class="content">
+          <button class="primarybutton">
+            <a href="#" target="_blank">Go to the album</a>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="album">
-      <img src={album7.src} alt="">
-      <p>RAGGART</p>
-      <p class="grey">Artist</p>
+
+    <div class="album project">
+      <div class="content-hover"> 
+        <img src={album7.src} alt="">
+        <p>RAGGART</p>
+        <p class="grey">Artist</p>
+        <div class="content">
+          <button class="primarybutton">
+            <a href="#" target="_blank">Go to the album</a>
+          </button>
+        </div>
+      </div>
     </div>
 </section>
 
 <style lang="scss">
   @use '../assets/sass/index' as *;
+
+  //start here
+
+  .content-hover {
+    position: relative;
+  }
+
+  .content {
+    position: absolute;
+    background-image: url("../assets/image/hoverportada.png");
+    background-size: cover;
+    background-position: center;
+    width: 230px;
+    height: 230px;
+    top:0;
+    border-radius: 8px;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+  }
+
+  .content.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  //end here
 
   header {
     display: flex;
@@ -76,7 +162,6 @@ import album7 from "../assets/image/Album7.webp";
     display: flex;
     flex-direction: column;
     justify-content: left;
-    align-items: left; 
     text-align: left; 
 
     h1 {
@@ -103,7 +188,6 @@ import album7 from "../assets/image/Album7.webp";
 
   .album img {
     width: 100%;
-    height: 100%;
     border-radius: 10px;
     object-fit: cover;
   }
@@ -129,19 +213,29 @@ import album7 from "../assets/image/Album7.webp";
 
   @media only screen and (min-width: 1024px) {
 
-    h1 {
-      font-size: 3rem;
-    }
-
     header {
       background-image: linear-gradient(to bottom, rgba(0, .6,.6, 0%), rgba(0,.2,.2,60%)), url("../assets/image/desk.jpg");
       background-size: cover;
       background-position: center center;
       overflow: hidden;
+      flex-direction: row;
+      justify-content: left;
+      text-align: left;
+      height: 80vh;
     }
 
     .content-box {
-      max-width: 600px;
+      max-width: 700px;
+    }
+
+    h1 {
+      margin-top: 100px;
+      font-size: 2rem;
+      margin: 0 15%;
+    }
+
+    header img {
+      display: none;
     }
   }
 </style>
