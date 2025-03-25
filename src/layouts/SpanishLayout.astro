@@ -93,37 +93,25 @@ const {title} = Astro.props;
     color: $white;
   }
   
-  // inicia boton rojo de accion
+  // boton
   
   .primarybutton {
     width: 90%;
-    height: 60px;
-    padding: 20px;
-    margin: 10% 5% 0px;
+    margin: 20px 10%;
     transition: background-color 0.3s, box-shadow 0.3s;
     cursor: pointer;
   }
-  
-  button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
+    
+  a {
     font-family: $text;
     font-weight: $regular;
     font-size: 1.5rem;
-    color: $green;
-    
-    a {
-      font-family: $text;
-      font-weight: $regular;
-      font-size: 1.5rem;
-    }
   }
   
   .primarybutton {
     background-color: transparent;
-    box-shadow: 0 0 10px 10px rgba($green, 35%);
+    border: 2px solid $green;
+    border-radius: 5px;
   }
   
   .primarybutton:hover {
