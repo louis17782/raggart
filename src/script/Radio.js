@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         throw new Error('Error getting song title');
       }
       const data = await response.json();
-      const currentSongTitle = data.name || 'RADIO - PLAYING';
+      const currentSongTitle = data.name || 'JAH BLESS - PLAYING';
       songTitleElement.textContent = currentSongTitle;
     } catch (error) {
       console.error('Error getting song title:', error);
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   pauseButton.addEventListener('click', () => {
     radioPlayer.pause();
-    songTitleElement.textContent = 'RADIO - PAUSED';
+    songTitleElement.textContent = 'RADIO 24/7 - PAUSED';
   });
 
   radioPlayer.addEventListener('play', () => {
