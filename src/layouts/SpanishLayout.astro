@@ -2,11 +2,10 @@
 import Navigation from "../components/Navigation.astro";
 import Openbutton from "../components/Hamburguer.astro";
 import logo from "../assets/image/logoradio.png";
-const {title} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/png" href={logo.src} />
@@ -106,9 +105,10 @@ const {title} = Astro.props;
   }
     
   a {
-    font-family: $text;
+    font-family: $heading;
     font-weight: $regular;
-    font-size: 1.5rem;
+    font-style: italic;
+    font-size: 1rem;
   }
   
   .primarybutton {
