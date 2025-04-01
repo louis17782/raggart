@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://raggart.netlify.app/",
+  site: "https://djraggart.com/",
   prefetch: true,
   vite: {
     css: {
