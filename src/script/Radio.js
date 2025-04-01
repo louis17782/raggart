@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const radioPlayer = document.getElementById('radio-player');
   const songTitleElement = document.getElementById('song-title');
 
-  const songInfoApiUrl = 'https://api.radioking.io/widget/radio/radiotest27/track/current';
+  const songInfoApiUrl = 'https://api.radioking.io/widget/radio/raggart/track/current';
 
   // Función para obtener el título de la canción desde la API
   async function fetchSongTitle() {
