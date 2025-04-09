@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         throw new Error('Error getting song title');
       }
       const data = await response.json();
-      const currentSongTitle = data.name || 'JAH BLESS - PLAYING';
+      const currentSongTitle = data.title || 'JAH BLESS - PLAYING';
       songTitleElement.textContent = currentSongTitle;
     } catch (error) {
       console.error('Error getting song title:', error);
