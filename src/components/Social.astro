@@ -14,13 +14,8 @@ const radioUrl = "https://play.radioking.io/raggart";
   <p class="name">RAGGART</p>
 </section>
 <div class="radio-container">
-  <img src={logo.src} alt="">
-  <p id="song-title"></p> 
-  <div> 
-    <button id="play-button"></button>
-    <button id="pause-button"></button>
-    <audio id="radio-player" src={radioUrl}></audio>
-  </div> 
+  
+ <iframe  src="https://player.radioking.io/raggart/?c=%231e7fcb&c2=%23ffffff&f=h&i=1&p=1&s=0&li=1&popup=1&plc=NaN&h=undefined&l=470&v=2" style="border-radius: 5px; width: 470px; height: 145px; " frameBorder="0" ></iframe><script type="text/javascript" src="https://player.radioking.io/scripts/iframe.bundle.js"></script>
 </div>
 
 <style lang="scss">
@@ -96,16 +91,14 @@ const radioUrl = "https://play.radioking.io/raggart";
     display: flex;
     justify-content: space-around;
     align-items: center; 
-    padding: 10px; 
-    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5); 
     z-index: 10;
   }
 
-  .radio-container > div {
-    display: flex; 
-    justify-content: center;
-    gap: 20px;
-  }
+  // .radio-container > div {
+  //   display: flex; 
+  //   justify-content: center;
+  //   gap: 20px;
+  // }
 
   #play-button {
     width: 50px;
